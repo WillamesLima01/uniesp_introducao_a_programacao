@@ -1,9 +1,29 @@
-indx = (int(input("Confirme a presença por código (0 = joão, 1 = Pedro, 2 = Tiago, 3 = José, 4 = Antônio, 5 = Ricardo, 6 = Ronaldo e 7 = Lucas): ")))
-jantar = ["João" , "Pedro" , "Tiago", "José" , "Antônio" , "Ricardo" , "Ronaldo" , "Lucas"]
+revac = True
 
-i = len(jantar) -1
-print(i)
-while i >= 0:
-    #if indx != i:
-        print(jantar[i])        
-        i-= 1       
+while revac:
+    resultado = (input("Enviar convite para os convidados (S/N): (joão, Pedro, Tiago, José, Antônio, Lucas): ")).upper()
+    jantar = ["João" , "Pedro" , "Tiago", "José" , "Antônio" , "Lucas"]
+
+    if resultado == "SAIR":
+        revac = False
+    else:
+        if resultado != "S" and resultado != "N":
+            print("opção errada!") 
+                          
+        else:
+            if resultado == "N":
+                addremv = (input("Deseja adicionar convidado?(S/N): ")).upper()
+                if addremv == "N":
+                    revnome = (input("Informe o nome do convidado para excluir da lista: "))
+                    jantar.remove(revnome)
+                    for convidado in jantar:
+                        print(f'Óla, {convidado}, você está convidado para um jantar em minha residência!')
+
+                else:
+                    addnome = (input("Informe o nome do convidado para inserir na lista: ")).upper()
+                    jantar.append(addnome)
+                    for convidado in jantar:
+                        print(f'Óla, {convidado}, você está convidado para um jantar em minha residência!')
+            else:
+                for convidado in jantar:
+                    print(f'Óla, {convidado}, você está convidado para um jantar em minha residência!')
